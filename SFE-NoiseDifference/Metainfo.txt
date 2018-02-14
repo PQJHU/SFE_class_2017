@@ -1,10 +1,10 @@
 Name of QuantLet: NoiseDifference
 
-Published in: Statistic Financial Market
+Published in: Statistics of Financial Market I
 
 Description: Drawing figures for White, Pink and Blue noise in time-domain and frequency-domain, ACF, PCF and applied Fourier transform
 
-Keywords: White nose, pink noise, blue noise, time-domain, frequency-domain, Fourier transform
+Keywords: White nose, Pink noise, Blue noise, Time-domain, Frequency-domain, Fourier transform
 
 Author: Junjie Hu
 
