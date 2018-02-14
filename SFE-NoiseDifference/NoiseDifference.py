@@ -110,7 +110,7 @@ pink_acf_pacf = plot_acf_pacf(signal=pink_noise_signal, name='ACF_PN')
 
 # plot periodogram of signals
 # hbo_specgram = plot_periodgram(signal=hbo_signal, name='FD_HBO', color='k')
-white_specgram = plot_periodgram(signal=extract_signal(file_name='white_noise.wav', num_frames=200000), name='FD_WN',
+white_specgram = plot_periodgram(signal=extract_signal(file_name='white_noise.wav', num_frames=441000), name='FD_WN',
                                  color='k')
 blue_specgram = plot_periodgram(signal=extract_signal(file_name='blue_noise.wav', num_frames=441000), name='FD_BN',
                                 color='b')
