@@ -7,15 +7,15 @@
 
 Name of QuantLet: NoiseDifference
 
-Published in: Statistic Financial Market
+Published in: Statistics of Financial Markets 1
 
-Description: Drawing figures for White, Pink and Blue noise in time-domain and frequency-domain, ACF, PCF and applied Fourier transform
+Description: Draws figures for White, Pink and Blue noise in time-domain and frequency-domain, ACF, PCF and applied Fourier transform
 
-Keywords: White nose, pink noise, blue noise, time-domain, frequency-domain, Fourier transform
+Keywords: White nose, Pink noise, Blue noise, Time-domain, Frequency-domain, Fourier transform
 
 Author: Junjie Hu
 
-Submitted: Mon, January 08 2017 by Junjie Hu
+Submitted: Monday, January 08 2017 by Junjie Hu
 
 Input: blue_noise, hbo_opening, pink_noise, white_noise
 
@@ -49,7 +49,10 @@ def plot_signal(signal, color='b', name=None):
     plt.figure(figsize=(20, 5))
     plt.plot(signal, c=color, linewidth=1.0)
     plt.xlabel('Time, t', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     # plt.title(name)
+    plt.tight_layout()
     plt.savefig(name + '.pdf', dpi=300)
     plt.show()
 
@@ -57,11 +60,16 @@ def plot_signal(signal, color='b', name=None):
 def plot_acf_pacf(signal, lags=None, name=None):
     plt.figure(figsize=(20, 5))
     acf = plt.subplot(1, 2, 1)
-    smt.graphics.plot_acf(signal, lags=lags, ax=acf, marker='.')
+    smt.graphics.plot_acf(signal, lags=lags, ax=acf)
     plt.xlabel('Time Lag', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     pacf = plt.subplot(1, 2, 2)
     smt.graphics.plot_pacf(signal, lags=lags, ax=pacf)
     plt.xlabel('Time Lag', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.tight_layout()
     plt.savefig(name + '.pdf', dpi=300)
     plt.show()
 
@@ -72,11 +80,15 @@ def plot_periodgram(signal, color=None, name=None):
     plt.plot(signal, c=color, linewidth=1.0)
     plt.xlabel('Time, t', fontsize=16)
     plt.ylabel('intensity', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.subplot(2, 1, 2)
     spectrum_signal = periodogram(signal)
     plt.plot(spectrum_signal[0], spectrum_signal[1], 'red')
     plt.xlabel('Freq', fontsize=16)
     plt.ylabel('spectrum', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.tight_layout()
     plt.savefig(name + '.pdf', dpi=300)
     plt.show()
@@ -97,6 +109,8 @@ def plot_decomposition():
     plt.plot(time, sin_func_2, c='g', linewidth=1)
     plt.plot(time, sin_func_3, c='r', linewidth=1)
     plt.xlabel('Time, t', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xlim(-1, 101)
     plt.tight_layout()
     plt.savefig('TD_Decomp.pdf', dpi=300)
@@ -124,8 +138,8 @@ blue_acf_pacf = plot_acf_pacf(signal=blue_noise_signal, name='ACF_BN')
 pink_acf_pacf = plot_acf_pacf(signal=pink_noise_signal, name='ACF_PN')
 
 # plot periodogram of signals
-hbo_specgram = plot_periodgram(signal=hbo_signal, name='FD_HBO', color='k')
-white_specgram = plot_periodgram(signal=extract_signal(file_name='white_noise.wav', num_frames=441000), name='FD_WN',
+# hbo_specgram = plot_periodgram(signal=hbo_signal, name='FD_HBO', color='k')
+white_specgram = plot_periodgram(signal=extract_signal(file_name='white_noise.wav', num_frames=200000), name='FD_WN',
                                  color='k')
 blue_specgram = plot_periodgram(signal=extract_signal(file_name='blue_noise.wav', num_frames=441000), name='FD_BN',
                                 color='b')
